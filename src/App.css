@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
 .container{
   width: 100vw;
   height: 100vh;
@@ -18,7 +19,6 @@
 }
 .infoBox {
   width: 50%;
-  border: 1px solid red;
   padding: 48px;
   display: flex;
   flex-direction: column;
@@ -42,6 +42,14 @@
   border: none;
   outline: none;
   text-align: right;
+  font-size: 24px;
+  font-family: 'Space Mono';
+  
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
 }
 .billBox img {
   width: 9px;
@@ -67,11 +75,26 @@
   border-radius: 5px;
   font-weight: 700;
   font-size: 24px;
+  cursor: pointer;
+  font-family: 'Space Mono';
+}
+.tipButton:hover {
+  background-color:#9FE8DF;
+  color: #00474B;
+
+}
+.labels {
+  display: flex;
+  justify-content: space-between;
 }
 label {
   font-weight: 700;
    font-size: 16px;
    color: #5E7A7D;
+   font-family: 'Space Mono';
+}
+.zero {
+  color: #E17457;
 }
 .resultBox {
   width: 50%;
@@ -90,7 +113,31 @@ label {
 .tipAmountBox, .totalBox {
   width: 333px;
   height: 71px;
-  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+.tipAmountBox > div, .totalBox > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.tipAmountBox h6, .totalBox h6 {
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  font-family: 'Space Mono';
+}
+.tipAmountBox p, .totalBox p{
+  font-weight: 700;
+  font-size: 13px;
+  color: #7F9D9F;
+  font-family: 'Space Mono';
+} 
+.tipAmountBox h2, .totalBox h2 {
+  font-weight: 700;
+  font-size: 48px;
+  color: #26C2AE;
+  font-family: 'Space Mono';
 }
 .resetBox {
   width: 333px;
@@ -103,4 +150,13 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Space Mono';
+  cursor: pointer;
+}
+.resetBox:hover {
+  background-color: #9FE8DF;
+}
+#active {
+  background-color: #26C2AE;
+  color: #00474B;
 }

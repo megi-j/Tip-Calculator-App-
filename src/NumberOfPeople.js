@@ -1,12 +1,16 @@
 import person from "./images/icon-person.svg"
 
-export default function NumberOfPeople() {
+export default function NumberOfPeople(props) {
   return (
     <>
-    <label htmlFor="">Number of People</label>
+    <div className="labels">
+      <label htmlFor="">Number of People</label>
+      <label htmlFor="" className='zero'>{props.peoplesRedLabel}</label>
+    </div>
+    
     <div className="numberOfPeopleBox">
         <img src={person} alt="" />
-        <input type="text" />
+        <input onFocus={props.clearPeoplesInputValue} onInput={props.fillPeoplesInputValue} type="number" value={props.peoplesValue} />
     </div>
     </>
   )
