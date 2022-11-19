@@ -6,8 +6,8 @@ export default function ResultBox(props) {
   return (
     <div className="resultBox">
        <TipAmountBox tipAmountPP = {props.tipAmountPP} />
-       <TotalBox />
-       <ResetBox reset = {props.reset} />
+       <TotalBox totalAmountPP={props.totalAmountPP} />
+       <ResetBox reset = {props.reset} resetIsClicked={props.resetIsClicked} />
     </div>
   )
 }

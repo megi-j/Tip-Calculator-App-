@@ -1,6 +1,6 @@
 
 
-export default function TotalBox() {
+export default function TotalBox(props) {
   return (
     <div className="totalBox">
         <div>
@@ -8,7 +8,7 @@ export default function TotalBox() {
           <p>/ person</p>
         </div>
         <div>
-          <h2>$0.00</h2>
+          <h2>${props.totalAmountPP}</h2>
         </div>
     </div>
   )

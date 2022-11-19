@@ -5,15 +5,15 @@ import { useState } from 'react';
 
 
 function App() {
-  // const [tipAmounPerPerson, setTipAmountPerPerson] = useState("0.00")
   const [billValue, setBillValue] = useState(0)
   const [billRedLabel, setBillRedLabel] = useState("")
   const [peoplesRedLabel, setPeoplesRedLabel] = useState("")
   const [peoplesValue, setPeoplesValue] = useState(0)
   const [tipBtnIsClicked, setTipBtnIsClicked] = useState(false)
   const [clickedTipBtn, setClickedTipBtn] = useState(null)
-
-  
+  const [customValue, setCustomValue] = useState("custom")
+  const [customRedLabel, setCustomRedLabel] = useState("")
+  const [resetIsClicked, setResetIsClicked] = useState(false)
 
   function clearBillInputValue(){
     setBillValue("")
@@ -24,14 +24,7 @@ function App() {
     setBillValue(parseInt(e.target.value))
     if(e.target.value > 0){
       setBillRedLabel("")
-      // if(peoplesValue > 0 && tipBtnIsClicked){
-      //   setTipAmountPerPerson((((billValue * clickedTipBtn) / 100)/ peoplesValue).toFixed(2))
-      //   console.log(clickedTipBtn)
-      //   console.log(billValue)
-      //   console.log(peoplesValue)
-      // }else{
-      //   setTipAmountPerPerson("0.00")
-      // }
+      
     }else{
       setBillValue("")
       
@@ -41,17 +34,21 @@ function App() {
     setPeoplesValue(parseInt(e.target.value))
     if(e.target.value > 0){
       setPeoplesRedLabel("")
-      // if(billValue > 0 && tipBtnIsClicked){ 
-      //   setTipAmountPerPerson((((billValue * clickedTipBtn) / 100)/ peoplesValue).toFixed(2))
-      //   console.log(clickedTipBtn)
-      //   console.log(billValue)
-      //   console.log(peoplesValue)
-      // }else{
-      //   setTipAmountPerPerson("0.00")
-      // }
     }else{
       setPeoplesValue("")
     }
+  }
+  function fillCustumInputValue(e){
+    setCustomValue(parseInt(e.target.value))
+    if(e.target.value > 0){
+      setCustomRedLabel("")
+    }else {
+      setCustomValue("")
+    }
+  }
+  function clearCustomInputValue(){
+    setCustomValue("")
+    setCustomRedLabel("can't be zero")
   }
   function clearPeoplesInputValue(){
     setPeoplesValue("")
@@ -60,15 +57,6 @@ function App() {
   function btnClick(btn){
     setTipBtnIsClicked(true)
     setClickedTipBtn(btn)
-    // setBtnBgColor("#26C2AE")
-    // if(billValue > 0 && peoplesValue > 0){
-    //   setTipAmountPerPerson((((billValue * btn) / 100)/ peoplesValue).toFixed(2))
-    //   console.log(clickedTipBtn)
-    //     console.log(billValue)
-    //     console.log(peoplesValue)
-    // }else{
-    //   setTipAmountPerPerson("0.00")
-    // }
    
   }
 
@@ -76,12 +64,25 @@ function App() {
     setBillValue(0)
     setPeoplesValue(0)
     setTipBtnIsClicked(false)
-
+    setCustomValue(0)
+    setResetIsClicked(true)
   }
+  
 
   return (
     <div className="container">
-       <Calculator tipAmountPP = {((billValue > 0 && peoplesValue > 0 ) ? (((billValue * clickedTipBtn) / 100)/ peoplesValue).toFixed(2) : "0.00") || ((billValue > 0 && tipBtnIsClicked) ? (((billValue * clickedTipBtn) / 100)/ peoplesValue).toFixed(2) : "0.00") || ((peoplesValue > 0 && tipBtnIsClicked) ? (((billValue * clickedTipBtn) / 100)/ peoplesValue).toFixed(2) : "0.00")} clearBillInputValue = {clearBillInputValue} fillBillInputValue = {fillBillInputValue} billValue = {billValue} billRedLabel = {billRedLabel} peoplesRedLabel ={peoplesRedLabel} fillPeoplesInputValue = {fillPeoplesInputValue} clearPeoplesInputValue = {clearPeoplesInputValue} peoplesValue = {peoplesValue} btnClick ={btnClick} reset = {reset} clickedBtnValue = {clickedTipBtn} />
+       <Calculator 
+       tipAmountPP = {tipBtnIsClicked ? 
+        (((billValue > 0 && peoplesValue > 0) ? (((billValue * clickedTipBtn) / 100)/ peoplesValue).toFixed(2) : "0.00")) :
+        ((billValue > 0 && peoplesValue > 0 && customValue > 0) ? (((billValue * customValue) / 100)/ peoplesValue).toFixed(2) : "0.00")} 
+
+       clearBillInputValue = {clearBillInputValue} fillBillInputValue = {fillBillInputValue} billValue = {billValue} billRedLabel = {billRedLabel} peoplesRedLabel ={peoplesRedLabel} fillPeoplesInputValue = {fillPeoplesInputValue} clearPeoplesInputValue = {clearPeoplesInputValue} peoplesValue = {peoplesValue} btnClick ={btnClick} reset = {reset} clickedBtnValue = {clickedTipBtn}
+       
+       totalAmountPP={tipBtnIsClicked ?
+        (((billValue > 0 && peoplesValue > 0) ? (((billValue + ((billValue * clickedTipBtn) / 100)) / peoplesValue).toFixed(2)) : "0.00")) :
+        (((billValue > 0 && peoplesValue > 0 && customValue > 0) ? (((billValue + ((billValue * customValue) / 100)) / peoplesValue).toFixed(2)) : "0.00"))}
+
+       customValue = {customValue} fillCustumInputValue = {fillCustumInputValue} clearCustomInputValue = {clearCustomInputValue} customRedLabel = {customRedLabel} tipBtnIsClicked = {tipBtnIsClicked} resetIsClicked = {resetIsClicked} />
     </div>
   );
 }

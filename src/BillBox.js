@@ -11,7 +11,7 @@ export default function BillBox(props) {
       </div>
       <div className="billBox">
         <img src={dollar} alt="dollar-sign" />
-        <input onFocus={props.clearBillInputValue} onInput={props.fillBillInputValue} type="number" step=".01" value={props.billValue}  />
+        <input onFocus={props.clearBillInputValue} onInput={props.fillBillInputValue} type="number" step="0.01" value={props.billValue} />
       </div>
     </>
     

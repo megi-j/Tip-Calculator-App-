@@ -27,7 +27,6 @@
 }
 .billBox, .numberOfPeopleBox{
   width: 100%;
-  border: 1px solid black;
   height: 48px;
   display: flex;
   justify-content: space-around;
@@ -45,6 +44,12 @@
   font-size: 24px;
   font-family: 'Space Mono';
   
+}
+::placeholder {
+  font-weight: 700;
+  font-size: 24px;
+  color: #547878;
+  text-align: center;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -65,6 +70,16 @@ input::-webkit-inner-spin-button {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 14px;
+}
+.buttons input {
+  width: 105px;
+  height: 48px;
+  text-align: right;
+  font-size: 24px;
+  font-family: 'Space Mono';
+  background-color: #F3F9FA;
+  border: none;
+  outline: none;
 }
 .tipButton {
   width: 105px;
@@ -98,7 +113,6 @@ label {
 }
 .resultBox {
   width: 50%;
-  border: 1px solid green;
   padding: 40px;
   margin-top: 32px;
   margin-right: 32px;
@@ -143,7 +157,7 @@ label {
   width: 333px;
   height: 48px;
   border-radius: 5px;
-  background-color: #26C2AE;
+  background-color: #0D686D;
   color: #00474B;
   font-weight: 700;
   font-size: 20px;
@@ -159,4 +173,7 @@ label {
 #active {
   background-color: #26C2AE;
   color: #00474B;
+}
+#resetActive {
+  background-color: #26C2AE;
 }
