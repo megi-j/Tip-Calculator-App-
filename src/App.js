@@ -2,6 +2,7 @@ import './Reset.css';
 import './App.css';
 import Calculator from './Calculator';
 import { useState } from 'react';
+import logo from "./images/logo.svg"
 
 
 function App() {
@@ -71,6 +72,9 @@ function App() {
 
   return (
     <div className="container">
+      <div className="logo">
+        <img src={logo} alt="logo" />
+      </div>
        <Calculator 
        tipAmountPP = {tipBtnIsClicked ? 
         (((billValue > 0 && peoplesValue > 0) ? (((billValue * clickedTipBtn) / 100)/ peoplesValue).toFixed(2) : "0.00")) :

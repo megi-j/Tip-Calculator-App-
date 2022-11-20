@@ -12,7 +12,7 @@ export default function TipBox(props) {
       
       <div className="buttons">
         {array.map(btn=>{
-          return <Button buttonValue = {`${btn}%`} btnClick={()=>props.btnClick(btn)} id = {props.tipBtnIsClicked === true && props.clickedBtnValue == btn ? "active" : ""} />
+          return <Button key={btn} buttonValue = {`${btn}%`} btnClick={()=>props.btnClick(btn)} id = {props.tipBtnIsClicked === true && props.clickedBtnValue == btn ? "active" : ""} />
         })}
          <input type="number" value={props.customValue} onFocus={props.clearCustomInputValue} onInput={props.fillCustumInputValue} placeholder="custom" />
       </div>
